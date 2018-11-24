@@ -10,9 +10,13 @@ int main(void)
 
  char texto[100] = "";
 
+ char texto2[100] = "";
+
  FILE *arq;
 
  FILE *alterado;
+
+  FILE *alterado3;
 
  char ler;
 
@@ -29,15 +33,12 @@ int main(void)
 			
 	                        fclose(arq);
                        
-
-
- 
- 
-
   puts("\nEscolha uma linha");
 
+  
 
-  linha_atual = 0;
+
+                       linha_atual = 0;
 
                         arq = fopen("url.txt", "r");
                         alterado = fopen("alterado.txt", "w");
@@ -53,18 +54,42 @@ int main(void)
                                 linha_atual += 1;
 
         
-                            }
+                        }
+
+                        
                             fclose(arq);
                             fclose(alterado);
-  
 
+                             
+
+                              linha_atual = 0;
+
+                             arq = fopen("url.txt", "r");
+                             alterado3 = fopen("alterado3.txt", "w");
+
+                        while(fgets(texto2, 1000, arq) != NULL){
+                                 if(linha_atual != (linha_selecionada - 1)){
+                                    fputs(texto2, alterado3);
+                                    }
+                                    linha_atual += 1;
+        
+                            }
+
+                            fclose(arq);
+                            fclose(alterado3);
+
+                            remove("url.txt");
+                            rename("alterado3.txt", "url.txt");
+  
+/*  
 
                        alterado = fopen("alterado.txt", "r");
                        (fscanf(alterado,"%s %s %f %d\n",nome, marca, &preco, &quantidade));
+                       printf("\nNome: %s Marca: %s Preço: %0.2f Quantidade: %d\n",nome,marca,preco,quantidade);
 
                         fclose(alterado);
 
-  /*                         puts("\nAtualizar: 1-Nome | 2-Marca | 3-Preço | 4-Quantidade");
+                         puts("\nAtualizar: 1-Nome | 2-Marca | 3-Preço | 4-Quantidade");
 
 
                         scanf("%d",&atualizar);
@@ -115,8 +140,9 @@ int main(void)
                         alterado = fopen("alterado.txt", "w");
 
                         while(fgets(texto, 1000, arq) != NULL){
-                                
+                                 if(linha_atual != (linha_selecionada - 1)){
                                     fputs(texto, alterado);
+                                    }
         
                             }
   
