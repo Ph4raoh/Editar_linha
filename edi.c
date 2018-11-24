@@ -146,6 +146,9 @@ int main(void)
                             fclose(alterado);
                         }
 
+                          remove("alterado.txt");
+
+
  
  return 0;
 }
