@@ -31,11 +31,40 @@ int main(void)
                             puts("Nome:");
                             scanf("%s",nome);
 
-                             fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
-
-
                         }
+
+                        if(atualizar == 2){
+                           arq = fopen(url, "a");
+                            system("clear");
+                            puts("Marca:");
+                            scanf("%s",marca);
+
+                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fclose(arq);
+                        }
+
+                        if(atualizar == 3){
+                           arq = fopen(url, "a");
+                            system("clear");
+                            puts("Preço:");
+                            scanf("%f",&preco);
+
+                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fclose(arq);
+                        }
+
+                        if(atualizar == 4){
+                           arq = fopen(url, "a");
+                            system("clear");
+                            puts("Preço:");
+                            scanf("%d",&quantidade);
+
+                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fclose(arq);
+                        }
+
 
 
                         arq = fopen("url.txt", "r");
