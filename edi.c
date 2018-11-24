@@ -31,7 +31,7 @@ int main(void)
                             puts("Nome:");
                             scanf("%s",nome);
 
-                             fprintf(arq, "%s %s %f %d\n",nome,marca,preco,quantidade);
+                             fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
 
 
@@ -51,8 +51,8 @@ int main(void)
                             fclose(arq);
                             fclose(alterado);
 
-                            //remove("arq.txt");
-                           // rename("alterado.txt", "arq.txt");
+                            remove("url.txt");
+                            rename("alterado.txt", "url.txt");
 
 
  
