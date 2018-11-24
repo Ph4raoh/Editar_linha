@@ -81,11 +81,11 @@ int main(void)
                             remove("url.txt");
                             rename("alterado3.txt", "url.txt");
   
-/*  
+ 
 
                        alterado = fopen("alterado.txt", "r");
                        (fscanf(alterado,"%s %s %f %d\n",nome, marca, &preco, &quantidade));
-                       printf("\nNome: %s Marca: %s Preço: %0.2f Quantidade: %d\n",nome,marca,preco,quantidade);
+                        printf("\nNome: %s Marca: %s Preço: %0.2f Quantidade: %d\n",nome,marca,preco,quantidade);
 
                         fclose(alterado);
 
@@ -95,64 +95,56 @@ int main(void)
                         scanf("%d",&atualizar);
 
                         if(atualizar == 1){
-                           alterado = fopen(alterado, "a");
+                           alterado = fopen("alterado.txt", "r");
+                           arq = fopen("url.txt", "a");
+
                             system("clear");
                             puts("Nome:");
                             scanf("%s",nome);
 
-                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fprintf(arq,"%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
+                            fclose(alterado);
                         }
 
                         if(atualizar == 2){
-                           arq = fopen(url, "a");
+                           alterado = fopen("alterado.txt", "r");
+                           arq = fopen("url.txt", "a");
+
                             system("clear");
                             puts("Marca:");
                             scanf("%s",marca);
 
-                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fprintf(arq,"%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
+                            fclose(alterado);
                         }
 
                         if(atualizar == 3){
-                           arq = fopen(url, "a");
+                           alterado = fopen("alterado.txt", "r");
+                           arq = fopen("url.txt", "a");
+
                             system("clear");
                             puts("Preço:");
                             scanf("%f",&preco);
 
-                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
+                            fprintf(arq,"%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
+                            fclose(alterado);
                         }
 
                         if(atualizar == 4){
-                           arq = fopen(url, "a");
+                           alterado = fopen("alterado.txt", "r");
+                           arq = fopen("url.txt", "a");
+
                             system("clear");
-                            puts("Preço:");
+                            puts("Quantidade:");
                             scanf("%d",&quantidade);
 
-                            fprintf(arq, "%s %s %0.2f %d\n",nome,marca,preco,quantidade);
-                            fclose(arq);
-                        }
-
-
-
-                      arq = fopen("url.txt", "r");
-                        alterado = fopen("alterado.txt", "w");
-
-                        while(fgets(texto, 1000, arq) != NULL){
-                                 if(linha_atual != (linha_selecionada - 1)){
-                                    fputs(texto, alterado);
-                                    }
-        
-                            }
-  
-                           
+                            fprintf(arq,"%s %s %0.2f %d\n",nome,marca,preco,quantidade);
                             fclose(arq);
                             fclose(alterado);
-
-                           // remove("url.txt");
-                           // rename("alterado.txt", "url.txt");
-*/
+                        }
 
  
  return 0;

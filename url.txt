@@ -1,4 +1,3 @@
-bombom ds 4 55
-chocolate dff 7 8
-leite das 8 7
-
+margarina das 8.00 7
+leite fdf 7.00 8
+queijo fgdf 1.00 5
