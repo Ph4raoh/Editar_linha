@@ -14,19 +14,63 @@ int main(void)
 
  FILE *alterado;
 
- 
- arq = fopen(url, "r");
- (fscanf(arq,"%s %s %f %d\n",nome, marca, &preco, &quantidade));
-          printf("Nome: %s Marca: %s Preço: %f Quantidade: %d\n",nome,marca,preco,quantidade);
-  fclose(arq);
+ char ler;
 
- puts("\nAtualizar: 1-Nome | 2-Marca | 3-Preço | 4-Quantidade");
+ int linha_atual;
+
+ int linha_selecionada;
+
+ 
+   arq = fopen("url.txt", "r");
+
+                           while((ler=fgetc(arq))!= EOF){
+		                    putchar(ler);
+                           }
+			
+	                        fclose(arq);
+                       
+
+
+ 
+ 
+
+  puts("\nEscolha uma linha");
+
+
+  linha_atual = 0;
+
+                        arq = fopen("url.txt", "r");
+                        alterado = fopen("alterado.txt", "w");
+
+                         scanf("%d",&linha_selecionada);
+
+
+                        while(fgets(texto, 1000, arq) != NULL){
+                                if(linha_atual == (linha_selecionada - 1)){
+                                    fputs(texto, alterado);
+                                    
+                                }
+                                linha_atual += 1;
+
+        
+                            }
+                            fclose(arq);
+                            fclose(alterado);
+  
+
+
+                       alterado = fopen("alterado.txt", "r");
+                       (fscanf(alterado,"%s %s %f %d\n",nome, marca, &preco, &quantidade));
+
+                        fclose(alterado);
+
+  /*                         puts("\nAtualizar: 1-Nome | 2-Marca | 3-Preço | 4-Quantidade");
 
 
                         scanf("%d",&atualizar);
 
                         if(atualizar == 1){
-                           arq = fopen(url, "a");
+                           alterado = fopen(alterado, "a");
                             system("clear");
                             puts("Nome:");
                             scanf("%s",nome);
@@ -67,7 +111,7 @@ int main(void)
 
 
 
-                        arq = fopen("url.txt", "r");
+                      arq = fopen("url.txt", "r");
                         alterado = fopen("alterado.txt", "w");
 
                         while(fgets(texto, 1000, arq) != NULL){
@@ -80,9 +124,9 @@ int main(void)
                             fclose(arq);
                             fclose(alterado);
 
-                            remove("url.txt");
-                            rename("alterado.txt", "url.txt");
-
+                           // remove("url.txt");
+                           // rename("alterado.txt", "url.txt");
+*/
 
  
  return 0;
